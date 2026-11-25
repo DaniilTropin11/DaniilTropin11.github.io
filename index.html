@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Даниил Тропин — Портфолио | IT-координатор / Бизнес-аналитик</title>
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --text-muted: #475569;
+            --accent: #1d4ed8;
+            --accent-soft: #eff6ff;
+            --border: #e2e8f0;
+            --success-bg: #f0fdf4;
+            --success-border: #16a34a;
+            --pet-bg: #fefce8;
+            --pet-text: #854d0e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.55;
+            padding: 2.5rem 1rem 3rem;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* Шапка */
+        .header {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        }
+
+        .header-top {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-top: 0.2rem;
+        }
+
+        .header-contacts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 0.9rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--text);
+            background: #f1f5f9;
+            border: 1px solid var(--border);
+            transition: background 0.15s, border-color 0.15s;
+        }
+
+        .contact-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .contact-btn.primary {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+
+        .contact-btn.primary:hover {
+            background: #1e40af;
+        }
+
+        .intro {
+            color: var(--text-muted);
+            font-size: 0.96rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.15rem;
+        }
+
+        .intro strong {
+            color: var(--text);
+        }
+
+        .metrics-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+
+        .metric-box {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.8rem 1rem;
+        }
+
+        .metric-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.15rem;
+        }
+
+        /* Разделы */
+        .section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+        }
+
+        .projects {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        }
+
+        .card-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .role-tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            background: #f1f5f9;
+            color: #334155;
+            padding: 0.25rem 0.7rem;
+            border-radius: 6px;
+        }
+
+        .role-tag.pet {
+            background: var(--pet-bg);
+            color: var(--pet-text);
+        }
+
+        .meta-tag {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .block-label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--accent);
+            margin: 1rem 0 0.35rem;
+        }
+
+        p {
+            font-size: 0.94rem;
+            color: #334155;
+        }
+
+        ul {
+            margin: 0.35rem 0 0.5rem 1.2rem;
+            font-size: 0.94rem;
+            color: #334155;
+        }
+
+        li {
+            margin-bottom: 0.35rem;
+        }
+
+        .result-box {
+            background: var(--success-bg);
+            border-left: 4px solid var(--success-border);
+            border-radius: 8px;
+            padding: 0.9rem 1.1rem;
+            margin: 1.15rem 0;
+            font-size: 0.93rem;
+            color: #14532d;
+        }
+
+        .result-box ul {
+            margin-top: 0.35rem;
+            color: #14532d;
+        }
+
+        /* Галерея скриншотов */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.85rem;
+            margin: 1.1rem 0;
+        }
+
+        .shot {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            background: #f1f5f9;
+            cursor: zoom-in;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .shot:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+        }
+
+        .shot img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+
+        .shot.wide img {
+            height: 240px;
+        }
+
+        .shot figcaption {
+            padding: 0.5rem 0.7rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            background: #ffffff;
+            border-top: 1px solid var(--border);
+        }
+
+        .card-footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 1.15rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tech {
+            font-size: 0.78rem;
+            color: #334155;
+            background: #f1f5f9;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .repo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #0f172a;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.84rem;
+            font-weight: 500;
+            padding: 0.45rem 0.95rem;
+            border-radius: 8px;
+            transition: background 0.15s;
+        }
+
+        .repo-link:hover {
+            background: #334155;
+        }
+
+        /* Подвал */
+        .footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Лайтбокс для просмотра скриншотов */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.88);
+            z-index: 1000;
+            padding: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 95vw;
+            max-height: 90vh;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 1rem 0.75rem 2rem; }
+            .header, .card { padding: 1.25rem; }
+            h1 { font-size: 1.55rem; }
+            h2 { font-size: 1.18rem; }
+        }
+
+        @media print {
+            body { background: #ffffff; padding: 0; }
+            .card, .header { box-shadow: none; break-inside: avoid; }
+            .contact-btn, .repo-link { border: 1px solid #cbd5e1; color: #0f172a; background: #ffffff; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ШАПКА -->
+    <header class="header">
+        <div class="header-top">
+            <div>
+                <div class="badge">Портфолио проектов • Новосибирск / Удалённо</div>
+                <h1>Даниил Тропин</h1>
+                <div class="subtitle">IT-координатор / Junior Project Manager • Junior Бизнес-аналитик</div>
+            </div>
+            <div class="header-contacts">
+                <a href="https://t.me/daniiltropin" target="_blank" rel="noopener" class="contact-btn primary">Telegram: @daniiltropin</a>
+                <a href="mailto:danik.tropin@mail.ru" class="contact-btn">danik.tropin@mail.ru</a>
+                <a href="https://github.com/DaniilTropin11" target="_blank" rel="noopener" class="contact-btn">GitHub</a>
+            </div>
+        </div>
+
+        <p class="intro">
+            Специалист с профильным IT-образованием (<strong>«Прикладная информатика»</strong>) и опытом удалённой работы более 3 лет.
+            Нахожу узкие места в ручных процессах, формализую требования (ТЗ, ER-модели, регламенты), координирую смежные подразделения и подрядчиков, а при необходимости сам собираю рабочие веб-инструменты автоматизации.
+        </p>
+
+        <div class="metrics-strip">
+            <div class="metric-box">
+                <div class="metric-value">3 веб-сервиса</div>
+                <div class="metric-label">в эксплуатации (до 1 000 пользователей за цикл)</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-value">0 потерь</div>
+                <div class="metric-label">договоров и задач после внедрения YouGile</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-value">до 6–7 тыс./мес</div>
+                <div class="metric-label">верифицированных B2B-лидов через SQL-парсер</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-value">-30% дублей</div>
+                <div class="metric-label">после очистки и фильтрации клиентской базы</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- КОММЕРЧЕСКИЕ И РАБОЧИЕ КЕЙСЫ -->
+    <div class="section-title">Реализованные рабочие кейсы</div>
+    <main class="projects">
+
+        <!-- КЕЙС 1 -->
+        <article class="card">
+            <div class="card-header">
+                <span class="role-tag">Аналитик процессов / Разработчик автоматизации</span>
+                <span class="meta-tag">СибУПК • Центр карьеры • Продакшен</span>
+            </div>
+            <h2>Цифровизация документооборота и распределения практик (3 веб-сервиса)</h2>
+
+            <div class="block-label">Бизнес-проблема (AS-IS)</div>
+            <p>
+                Ключевые операции отдела выполнялись вручную: оформление одного приказа на практику занимало от 1 до 60 минут ручной правки,
+                на проверку каждого индивидуального договора уходило 1–3 минуты из-за частых ошибок в падежах и реквизитах,
+                а запись студентов на площадки шла через почту, таблицы и мессенджеры с дублями и превышением квот.
+            </p>
+
+            <div class="block-label">Что сделано</div>
+            <ul>
+                <li><strong>Сервис генерации приказов:</strong> реализовал веб-инструмент загрузки служебных записок в формате <code>.xls/.xlsx</code> с автоматическим формированием готового официального приказа.</li>
+                <li><strong>Сервис генерации индивидуальных договоров:</strong> спроектировал 5-блочную веб-форму с автоподстановкой правовой формы, склонением ФИО/должностей и сборкой документа без ошибок.</li>
+                <li><strong>Портал записи на практику:</strong> разработал форму распределения по 13 государственным и муниципальным площадкам (МВД, ФНС, Мэрия, Арбитражный суд и др.) с проверкой доступности подразделений, лимитами мест и блокировкой дублей.</li>
+                <li>Обучил сотрудников работе с инструментами и сопровождаю сервисы в эксплуатации.</li>
+            </ul>
+
+            <div class="result-box">
+                <strong>Результат (TO-BE):</strong>
+                <ul>
+                    <li><strong>Приказы:</strong> 3 сотрудника выпускают 30–60 приказов/мес в пару кликов вместо ручной правки до 1 часа на документ.</li>
+                    <li><strong>Договоры:</strong> ~1 000 студентов каждые 2–3 месяца формируют готовые договоры; отдел полностью отказался от ручной проверки (экономия ~17–50 часов за цикл).</li>
+                    <li><strong>Запись на практику:</strong> 200–300 заявок за поток обрабатываются автоматически без дублей и перебора квот.</li>
+                </ul>
+            </div>
+
+            <div class="gallery">
+                <figure class="shot">
+                    <img src="images/orders.png" alt="Сервис генерации приказов" loading="lazy">
+                    <figcaption>Сервис формирования приказов из .xls/.xlsx</figcaption>
+                </figure>
+                <figure class="shot">
+                    <img src="images/contracts.png" alt="Сервис генерации договоров" loading="lazy">
+                    <figcaption>Веб-форма генерации индивидуальных договоров</figcaption>
+                </figure>
+                <figure class="shot">
+                    <img src="images/practice.png" alt="Портал записи на практику" loading="lazy">
+                    <figcaption>Портал записи на 13 площадок с контролем квот</figcaption>
+                </figure>
+            </div>
+
+            <div class="card-footer">
+                <div class="stack">
+                    <span class="tech">Google Apps Script</span>
+                    <span class="tech">JavaScript</span>
+                    <span class="tech">Python</span>
+                    <span class="tech">HTML/CSS</span>
+                    <span class="tech">Google Sheets</span>
+                </div>
+                <span class="meta-tag">Демо и код по запросу</span>
+            </div>
+        </article>
+
+        <!-- КЕЙС 2 -->
+        <article class="card">
+            <div class="card-header">
+                <span class="role-tag">IT-координатор / Руководитель внедрения</span>
+                <span class="meta-tag">СибУПК • Команда 4 сотрудника • Продакшен</span>
+            </div>
+            <h2>Внедрение YouGile и оцифровка документооборота отдела</h2>
+
+            <div class="block-label">Бизнес-проблема (AS-IS)</div>
+            <p>
+                Договоры с организациями-партнёрами, контакты контрагентов и отложенные задачи с горизонтом исполнения до полугода хранились разрозненно.
+                Статус подписания документов было сложно отследить, возникали потери договоров и срывы по долгосрочным поручениям.
+            </p>
+
+            <div class="block-label">Что сделано</div>
+            <ul>
+                <li>Спроектировал архитектуру рабочего пространства в YouGile с разделением по доскам факультетов и подразделений (ФЭИУ, ТТФ, ЮФ, ДО).</li>
+                <li>Настроил сквозную систему учёта контрагентов через <strong>зеркальные колонки</strong> по учебным годам (2023–2027) с привязкой сканов договоров, контактов и стикеров статусов («Оригинал / Копия», «Дата подписания»).</li>
+                <li>Выстроил помесячный трекинг служебных записок и направлений через чек-листы подзадач (до 70+ позиций в карточке) и контроль сроков.</li>
+                <li>Закрепил регламенты ведения карточек и провёл обучение команды из 4 сотрудников.</li>
+            </ul>
+
+            <div class="result-box">
+                <strong>Результат (TO-BE):</strong>
+                полностью прекратились потери договоров и отложенных задач (горизонт до 6 месяцев); вся цепочка движения документооборота и статусов по контрагентам стала прозрачной для всей команды.
+            </div>
+
+            <div class="gallery">
+                <figure class="shot wide">
+                    <img src="images/yougile.png" alt="Рабочее пространство YouGile" loading="lazy">
+                    <figcaption>Обезличенная доска YouGile: зеркальные колонки по годам, стикеры статусов, подзадачи (клик для увеличения)</figcaption>
+                </figure>
+            </div>
+
+            <div class="card-footer">
+                <div class="stack">
+                    <span class="tech">YouGile</span>
+                    <span class="tech">Регламентация процессов</span>
+                    <span class="tech">Документооборот</span>
+                    <span class="tech">Обучение команды</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- КЕЙС 3 -->
+        <article class="card">
+            <div class="card-header">
+                <span class="role-tag">Бизнес-аналитик / Архитектор MVP</span>
+                <span class="meta-tag">ООО «Инженерное Бюро» • Удалённо</span>
+            </div>
+            <h2>Проектирование и MVP веб-платформы онлайн-заказов оборудования</h2>
+
+            <div class="block-label">Бизнес-проблема (AS-IS)</div>
+            <p>
+                Заявки на вентиляционное и климатическое оборудование принимались по телефону, почте и на встречах, после чего вручную переносились в таск-трекер.
+                Ручной ввод и централизованные согласования через административный отдел вызывали ошибки в позициях и задержки в передаче заказов в производство.
+            </p>
+
+            <div class="block-label">Что сделано</div>
+            <ul>
+                <li>Провёл обследование оргструктуры и процесса приёма заявок, формализовал целевой флоу клиентского заказа.</li>
+                <li>Провёл сравнительный анализ готовых CMS/CRM-решений и обосновал кастомную разработку под будущий инженерный калькулятор и учёт технических параметров оборудования.</li>
+                <li>Спроектировал концептуальную и логическую ER-модель базы данных (<strong>14 сущностей</strong> в нотации Мартина с ролевой моделью ASP.NET Identity).</li>
+                <li>Реализовал рабочий прототип на ASP.NET Core MVC (каталог, AJAX-фильтрация без перезагрузки, авторизация по ролям, корзина, оформление заявки и панель администратора) и провёл демонстрацию сотрудникам компании.</li>
+            </ul>
+
+            <div class="result-box">
+                <strong>Результат (TO-BE):</strong>
+                подготовлена проверенная архитектура БД, рабочий MVP-прототип и дорожная карта дальнейшего развития (калькулятор расчёта, платёжный шлюз, мобильная версия), переданные команде для следующего этапа.
+            </div>
+
+            <div class="gallery">
+                <figure class="shot">
+                    <img src="images/er-diagram.png" alt="Логическая ER-модель базы данных" loading="lazy">
+                    <figcaption>Логическая ER-модель БД (14 сущностей)</figcaption>
+                </figure>
+                <figure class="shot">
+                    <img src="images/ib-catalog.png" alt="Каталог оборудования и AJAX-фильтрация" loading="lazy">
+                    <figcaption>Интерфейс каталога с AJAX-фильтрацией</figcaption>
+                </figure>
+                <figure class="shot">
+                    <img src="images/ib-admin.png" alt="Админ-панель заказов" loading="lazy">
+                    <figcaption>Панель администратора: список и статусы заказов</figcaption>
+                </figure>
+            </div>
+
+            <div class="card-footer">
+                <div class="stack">
+                    <span class="tech">Бизнес-анализ</span>
+                    <span class="tech">ER-моделирование</span>
+                    <span class="tech">C# / ASP.NET Core MVC</span>
+                    <span class="tech">Entity Framework Core</span>
+                    <span class="tech">MS SQL Server</span>
+                </div>
+                <a href="https://github.com/DaniilTropin11/IB-Company" target="_blank" rel="noopener" class="repo-link">GitHub: репозиторий MVP →</a>
+            </div>
+        </article>
+
+        <!-- КЕЙС 4 -->
+        <article class="card">
+            <div class="card-header">
+                <span class="role-tag">Специалист по данным и автоматизации</span>
+                <span class="meta-tag">РИА «Еврозвук» • Удалённо</span>
+            </div>
+            <h2>Автоматизация сбора и очистки B2B-базы клиентов</h2>
+
+            <div class="block-label">Бизнес-проблема (AS-IS)</div>
+            <p>
+                Отделу розничных и B2B-продаж требовался стабильный поток контактов неохваченных компаний, при этом существующая клиентская база содержала большое количество дублей,
+                что искажало статусы сделок и приводило к повторным прозвонам одних и тех же контрагентов.
+            </p>
+
+            <div class="block-label">Что сделано</div>
+            <ul>
+                <li>Написал скрипт-парсер для автоматического сбора карточек неохваченных B2B-компаний (название, адрес, телефон).</li>
+                <li>Реализовал проверку входящих записей на дубли через SQL-базу данных до загрузки в рабочую воронку.</li>
+                <li>Провёл аудит и очистку текущей базы клиентов, настроил правила фильтрации и сегментации запросов при потоке 60–80 лидов в неделю.</li>
+            </ul>
+
+            <div class="result-box">
+                <strong>Результат (TO-BE):</strong>
+                обеспечен приток <strong>150–300 верифицированных лидов в день (до 6–7 тыс. записей в месяц)</strong> без ручного поиска; доля дублей в существующей базе снижена на <strong>30%</strong>.
+            </div>
+
+            <div class="card-footer">
+                <div class="stack">
+                    <span class="tech">SQL</span>
+                    <span class="tech">Парсинг данных</span>
+                    <span class="tech">Очистка и валидация БД</span>
+                    <span class="tech">B2B-сегментация</span>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- PET-ПРОЕКТ -->
+    <div class="section-title">Инициативные проекты (Pet-проекты)</div>
+    <section class="projects">
+        <article class="card">
+            <div class="card-header">
+                <span class="role-tag pet">Pet-проект / Прототип</span>
+                <span class="meta-tag">Инициативная разработка</span>
+            </div>
+            <h2>Прототип Telegram-бота для онбординга и тестирования сотрудников</h2>
+
+            <div class="block-label">Идея и задача</div>
+            <p>
+                Проработка MVP-решения для сетевых компаний, которым требуется автоматизировать выдачу учебных материалов и проверку знаний новичков прямо в Telegram без внедрения тяжёлых LMS-платформ.
+            </p>
+
+            <div class="block-label">Что реализовано в прототипе</div>
+            <ul>
+                <li>Спроектировал пользовательский сценарий: пошаговые учебные модули → интерактивное тестирование → автоматическая проверка ответов и сохранение прогресса.</li>
+                <li>Спроектировал структуру хранения данных пользователей и результатов тестов в реляционной БД.</li>
+                <li>Собрал рабочий прототип на Python для проверки бизнес-логики и демонстрации потенциальным заказчикам.</li>
+            </ul>
+
+            <div class="card-footer">
+	   <div class="stack">
+    	 <span class="tech">Python</span>
+    	<span class="tech">python-telegram-bot</span>
+    	<span class="tech">SQLite</span>
+    	<span class="tech">Проектирование логики</span>
+	</div>
+                <a href="https://github.com/DaniilTropin11/my-company-telegram-bot" target="_blank" rel="noopener" class="repo-link">GitHub: код прототипа →</a>
+            </div>
+        </article>
+    </section>
+
+    <footer class="footer">
+        <p>Дополнительные кейсы (постановка ТЗ интеграторам 1С:Абитуриент, координация 5 проектных направлений, анализ 20+ финансовых моделей) — в резюме и на собеседовании.</p>
+        <p style="margin-top: 0.4rem;">© 2026 Даниил Тропин • Новосибирск (готов к удалённой работе по МСК)</p>
+    </footer>
+
+</div>
+
+<!-- Лайтбокс -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+    <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.querySelectorAll('.shot img').forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('open');
+        });
+    });
+
+    lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('open');
+        lightboxImg.src = '';
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') lightbox.classList.remove('open');
+    });
+</script>
+</body>
+</html>
